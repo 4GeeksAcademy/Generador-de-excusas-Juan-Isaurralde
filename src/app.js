@@ -1,12 +1,8 @@
-/* eslint-disable */
-//import "bootstrap";
 import "./style.css";
-
-//import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 function makeAnExcuse() {
-  const excuseObject = {
+  const excuseArgumentsObject = {
     who: ["The dog", "My grandma", "The mailman", "My bird"],
     action: ["ate", "peed", "crushed", "broke"],
     what: ["my homework", "my phone", "the car"],
@@ -18,11 +14,12 @@ function makeAnExcuse() {
       "while I was praying"
     ]
   };
-  let excuseParamsArray = ["who", "action", "what", "when"];
   let newExcuse = "";
-  for (let i = 0; i < excuseParamsArray.length; i++) {
-    let randomPosition = Math.floor(Math.random() * 3);
-    newExcuse += excuseObject[excuseParamsArray[i]][randomPosition] + " ";
+  for (const key in excuseArgumentsObject) {
+    let randomPosition = Math.floor(
+      Math.random() * excuseArgumentsObject[key].length
+    );
+    newExcuse += excuseArgumentsObject[key][randomPosition] + " ";
   }
   document.getElementById("excuse").innerHTML = newExcuse;
 }
